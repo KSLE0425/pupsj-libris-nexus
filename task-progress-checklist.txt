@@ -1,0 +1,8 @@
+NoTask Progress Checklist:
+- [x] Fix return-scanner response handling
+- [x] Remove "PUP Logo" image from all report views (general, students, faculty, acquired, pdf)
+- [x] Remove "Return book" button from student dashboard
+- [x] Remove manual barcode entry from faculty return-scanner
+- [x] Remove manual barcode entry from student return-scanner
+- [x] Fix email validation - removed unique:students and unique:faculties constraints from registration
+- [x] Rename "Specialty" to "Program" in frontend views (admin/programs/index.blade.php, faculty/register.blade.php)

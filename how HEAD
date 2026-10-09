@@ -1,0 +1,12 @@
+* [33md682a48[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m updated landing page,login page for users and librarian login twin
+[31m|[m * [33m1c6107f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m chore: re-add all files ignoring venv
+[31m|[m * [33m1dfc18c[m chore: ignore venv folder
+[31m|[m * [33m72761b9[m chore: ignore Python virtual environment folder
+[31m|[m[31m/[m  
+[31m|[m * [33m05ca545[m[33m ([m[1;31morigin/faculty[m[33m)[m Failed Faculty Separate from students
+[31m|[m[31m/[m  
+* [33m1d0bcee[m feat: Major system enhancements – archiving, AI suggestions, trend tracker, UI improvements
+* [33m9b127ef[m Added Trend Tracker, Edited Add book; Not yet connected to DB
+* [33mb46a6ad[m Initial commit - Laravel Library System
+* [33mb3883e9[m Admin dashboard + books management + students management complete
+* [33m67f6be8[m Fresh Laravel install

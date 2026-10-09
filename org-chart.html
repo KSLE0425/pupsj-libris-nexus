@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library API — Interactive Organization & Architecture Chart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0f19;
+      --bg-card: #121826;
+      --bg-card-hover: #1b2438;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --primary: #6366f1;
+      --cyan: #06b6d4;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --purple: #8b5cf6;
+      --indigo: #4f46e5;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    header {
+      background: linear-gradient(180deg, #161f36 0%, #0b0f19 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #a5b4fc, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    p.lead {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 0.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.25rem;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.6rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      background: var(--bg-card-hover);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: var(--card-color, var(--primary));
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--card-color, var(--primary));
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .diagram-container {
+      background: #0f1523;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0 3rem;
+      overflow-x: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🏛️ Library API System Organization Chart</h1>
+    <p class="lead">Interactive architectural and structural map for Laravel 11 Library API, Kiosk, Koha ILS, and AI Recommendation Service.</p>
+    <div>
+      <span class="badge-pill">Laravel 11</span>
+      <span class="badge-pill">24 Eloquent Models</span>
+      <span class="badge-pill">29 Controllers</span>
+      <span class="badge-pill">6 Business Services</span>
+      <span class="badge-pill">11 Mailables</span>
+      <span class="badge-pill">FastAPI ML Microservice</span>
+      <span class="badge-pill">Koha ILS REST Sync</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="section-title">👥 Organizational & Role Hierarchy</div>
+    <div class="diagram-container">
+      <pre class="mermaid">
+      graph TD
+        A[👑 Super Administrator] --> B1[📖 Librarians]
+        A --> B2[👔 Library Staff]
+        
+        B1 --> C1[Circulation & Acquisitions]
+        B1 --> C2[Cataloging & Koha Sync]
+        B1 --> C3[Damage & Penalty Review]
+        B1 --> C4[AI Suggestions & Trends]
+
+        B2 --> C5[Physical Counter Circulation]
+        B2 --> C6[Kiosk Support & Assistance]
+
+        subgraph Patrons ["🎓 Library Patrons & Users"]
+          P1[👨‍🏫 Faculty Members]
+          P2[🎓 Students / Researchers]
+          P3[👥 Guests / Visitors]
+        end
+
+        C1 -. Service .-> Patrons
+        C5 -. Service .-> Patrons
+      </pre>
+    </div>
+
+    <div class="section-title">🏗️ High-Level System Architecture</div>
+    <div class="diagram-container">
+      <pre class="mermaid">
+      flowchart TB
+        subgraph Entry ["1. Clients & Routers"]
+          WEB[🌐 routes/web.php]
+          API[⚡ routes/api.php]
+        end
+
+        subgraph Security ["2. Middleware Guards"]
+          MW1[AdminMiddleware]
+          MW2[KioskAuth]
+          MW3[TrackUserActivity]
+        end
+
+        subgraph AppControllers ["3. Domain Controllers"]
+          CTL_ADM[Admin Controllers]
+          CTL_STU[Student Controllers]
+          CTL_FAC[Faculty Controllers]
+          CTL_SHR[Kiosk, Books & Shared]
+        end
+
+        subgraph BizServices ["4. Core Services"]
+          S1[AISuggestionService]
+          S2[BorrowEligibilityService]
+          S3[PenaltyCalculationService]
+          S4[ReceiptPrinterService]
+          S5[KohaApiService]
+          S6[TrendTrackerService]
+        end
+
+        subgraph Repos ["5. Repositories"]
+          R1[BookRepository]
+          R2[StudentRepository]
+        end
+
+        subgraph DB ["6. Eloquent ORM & Database"]
+          M1[(Books, Usages, Notifications)]
+          M2[(Users, Students, Faculty, Guests)]
+          M3[(Penalties, Damages, Requisitions)]
+        end
+
+        WEB & API --> Security
+        Security --> AppControllers
+        AppControllers --> BizServices & Repos
+        BizServices --> Repos
+        Repos --> DB
+      </pre>
+    </div>
+
+    <div class="section-title">⚙️ Business Services Layer (`app/Services`)</div>
+    <div class="grid">
+      <div class="card" style="--card-color: var(--primary);">
+        <div class="card-title">AISuggestionService <span class="card-tag">AI / ML</span></div>
+        <div class="card-desc">Integrates with Google Gemini API & Python FastAPI microservice for personalized book recommendations and purchase gap analysis.</div>
+      </div>
+      <div class="card" style="--card-color: var(--emerald);">
+        <div class="card-title">BorrowEligibilityService <span class="card-tag">Rules</span></div>
+        <div class="card-desc">Validates patron loan eligibility: checks active patron bans, overdue loan limits, unpaid penalty thresholds, and max loan caps.</div>
+      </div>
+      <div class="card" style="--card-color: var(--cyan);">
+        <div class="card-title">KohaApiService <span class="card-tag">Sync</span></div>
+        <div class="card-desc">Handles two-way REST API integration with external Koha ILS server for syncing bibliographic items and patron statuses.</div>
+      </div>
+      <div class="card" style="--card-color: var(--amber);">
+        <div class="card-title">PenaltyCalculationService <span class="card-tag">Finance</span></div>
+        <div class="card-desc">Calculates overdue fees based on collection category fine rates, overdue grace days, and weekend/holiday exclusions.</div>
+      </div>
+      <div class="card" style="--card-color: var(--rose);">
+        <div class="card-title">ReceiptPrinterService <span class="card-tag">Hardware</span></div>
+        <div class="card-desc">Generates ESC/POS formatted thermal receipt slips for self-service kiosk checkout and return transactions.</div>
+      </div>
+      <div class="card" style="--card-color: var(--purple);">
+        <div class="card-title">TrendTrackerService <span class="card-tag">Analytics</span></div>
+        <div class="card-desc">Aggregates circulation metrics, peak borrowing hours, trending academic topics, and underutilized library resources.</div>
+      </div>
+    </div>
+
+    <div class="section-title">🔄 Kiosk Self-Service Borrowing Sequence</div>
+    <div class="diagram-container">
+      <pre class="mermaid">
+      sequenceDiagram
+        autonumber
+        actor Patron as 🎓 Patron (Student/Faculty)
+        participant Kiosk as 🏪 Kiosk UI
+        participant Ctl as ⚙️ KioskController
+        participant Elig as 🛡️ BorrowEligibilityService
+        participant Mail as 📧 KioskOtpMail
+        participant DB as 🗄️ Database
+        participant Print as 🖨️ ReceiptPrinterService
+
+        Patron ->> Kiosk: Input Patron ID
+        Kiosk ->> Ctl: Check eligibility & request OTP
+        Ctl ->> Elig: Verify unbanned & clear fines
+        Elig -->> Ctl: Eligible
+        Ctl ->> DB: Create KioskOtpCode
+        Ctl ->> Mail: Send OTP to patron email
+        Patron ->> Kiosk: Enter OTP
+        Kiosk ->> Ctl: Verify OTP code
+        Ctl -->> Kiosk: Session Approved
+        Patron ->> Kiosk: Scan Book QR / Barcode
+        Kiosk ->> DB: Check book availability
+        DB -->> Kiosk: Book Available
+        Patron ->> Kiosk: Confirm checkout
+        Kiosk ->> DB: Insert BookUsage & update Book status
+        Kiosk ->> Print: Print transaction receipt
+        Print -->> Patron: Thermal Paper Slip
+      </pre>
+    </div>
+
+  </div>
+
+  <footer>
+    Library API System Architecture & Organization Chart &bull; Generated for standalone review (Code preserved intact) &bull; 2026
+  </footer>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#0f1523',
+        primaryColor: '#4f46e5',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#6366f1',
+        lineColor: '#64748b',
+        secondaryColor: '#0284c7',
+        tertiaryColor: '#10b981'
+      }
+    });
+  </script>
+</body>
+</html>
